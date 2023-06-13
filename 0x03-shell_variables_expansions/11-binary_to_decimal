@@ -1,3 +1,2 @@
 #!/bin/bash
-BINARY=10100111001
 echo "$BINARY" | dc
