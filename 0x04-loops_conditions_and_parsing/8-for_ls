@@ -3,8 +3,7 @@
 
 FILES="*"
 
-for file in $FILES
+for f in $FILES
 do
-	f=$(echo $file | cut -d "-" -f 2-)
-	echo "$f"
+	echo "$f" | cut -d "-" -f 2-
 done
