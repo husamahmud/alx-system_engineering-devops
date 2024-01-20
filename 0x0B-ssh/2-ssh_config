@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# SSH client configuration
+# SSH client configuration must be configured to use the private key ~/.ssh/school
+# SSH client configuration must be configured to refuse to authenticate using a password
+# 439543-web-01	ubuntu	54.197.206.133
+Host web-01
+	HostName 54.197.206.133
+	User ubuntu
+	IdentityFile ~/.ssh/school
