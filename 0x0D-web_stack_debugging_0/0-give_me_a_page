@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Docs
+
+service apache2 start
