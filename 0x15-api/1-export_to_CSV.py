@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Gather data from an API"""
 import csv
-from urllib.request import urlopen
 import json
 from sys import argv
+from urllib.request import urlopen
 
 
 if __name__ == '__main__':

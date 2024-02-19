@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Gather data from an API"""
-from urllib.request import urlopen
 import json
+from urllib.request import urlopen
 
 if __name__ == '__main__':
     url = f'https://jsonplaceholder.typicode.com/users'
