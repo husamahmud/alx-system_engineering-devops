@@ -5,25 +5,27 @@ from urllib.request import urlopen
 import json
 from sys import argv
 
-userId = argv[1]
 
-url = f'https://jsonplaceholder.typicode.com/users?id={userId}'
-with urlopen(url) as res:
-    body = res.read().decode('UTF-8')
-data = json.loads(body)
-username = data[0]['username']
+if __name__ == '__main__':
+    userId = argv[1]
 
-url = f'https://jsonplaceholder.typicode.com/todos?userId={userId}'
-with urlopen(url) as res:
-    body = res.read().decode('UTF-8')
+    url = f'https://jsonplaceholder.typicode.com/users?id={userId}'
+    with urlopen(url) as res:
+        body = res.read().decode('UTF-8')
+    data = json.loads(body)
+    username = data[0]['username']
 
-data = json.loads(body)
-with open(f'{userId}.csv', 'w', newline='') as f:
-    writer = csv.writer(f)
-    for task in data:
-        writer.writerow(
-            [f'"{task["userId"]}"',
-             f'"{username}"',
-             f'"{task["completed"]}"',
-             f'"{task["title"]}"']
-        )
+    url = f'https://jsonplaceholder.typicode.com/todos?userId={userId}'
+    with urlopen(url) as res:
+        body = res.read().decode('UTF-8')
+
+    data = json.loads(body)
+    with open(f'{userId}.csv', 'w', newline='') as f:
+        writer = csv.writer(f)
+        for task in data:
+            writer.writerow(
+                [f'"{task["userId"]}"',
+                 f'"{username}"',
+                 f'"{task["completed"]}"',
+                 f'"{task["title"]}"']
+            )
