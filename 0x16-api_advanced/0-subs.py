@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-"""number of subscribers"""
+"""Module that queries the Reddit API"""
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """gets the number of subscribers for a given subreddit"""
-    url = f'https://www.reddit.com/r/{subreddit}/about.json'
-    res = requests.get(url, headers={'User-Agent': 'TutTrue'}).json()
-    return res.get('data', {}).get('subscribers', 0)
+    """prints the number of subscribers for a given subreddit"""
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
+    headers = {'User-Agent': 'Unfortunately I had to use a custom one'}
+    req = requests.get(url, headers=headers).json()
+    subs = req.get('data', {}).get('subscribers', 0)
+    return subs
